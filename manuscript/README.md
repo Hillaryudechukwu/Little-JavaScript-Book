@@ -4,7 +4,7 @@
 
 * [Intro](intro.md)
 * [Chapter 1. Getting started with JavaScript](chapter1.md)
-* Chapter 2. COMING SOON
+* [Chapter 2. Prologue: JavaScript fundamentals](chapter2.md)
 * [Chapter 3. A whirlwind tour of JavaScript engines](chapter3.md)
 * [Chapter 4. Closures and modules in JavaScript](chapter4.md)
 * [Chapter 5. The secret life of JavaScript objects](chapter5.md)
