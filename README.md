@@ -8,6 +8,8 @@ Ever dreamed of a JavaScript book focused on the "hard parts" while being beginn
 
 **More chapters will come in the next weeks!**
 
+**NOTE: At this moment the book is still work in progress and I'm not accepting pull requests. Open an issue if you find errors or typos. Once the book is stabilized I'll add contribution guidelines and you'll be able to submit a PR. Thanks a lot!**
+
 ## Motivation
 
 As much as I love "You don't know JS" and "Eloquent JavaScript" I feel there is the need for a book which takes the reader by hand. Also, everyone has a unique viewpoint on technical topics and my readers love my style of teaching. The "Little JavaScript Book" aims to be a reference on the hard parts of JavaScript aiming at beginners but also at more experienced developers.
