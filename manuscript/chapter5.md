@@ -316,7 +316,7 @@ function Person(name, age) {
 var me = Person("Valentino");
 me.greet();
 
-// Output: "Valentino"
+// Output: "Hello Valentino"
 ```
 
 How nice! But still we can do better. How about the good 'ol "prototype" you saw earlier? Could help here? Turns out, functions (and all the built-in objects) in JavaScript have a backpack called prototype. prototype is just another object and can contain everything we can think of: properties, methods. For adding a method to our Person prototype you can do:
@@ -345,7 +345,7 @@ Person.prototype.greet = function() {
 var me = Person("Valentino");
 me.greet();
 
-// Output: "Valentino"
+// Output: "Hello Valentino"
 ``` 
 
 Now the source for all common methods is `Person.prototype`. At this point we're ready to do the last tweak to our Person because there is a more cleaner way for arranging that function. With the [new operator in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new) we can get rid of all the noise inside Person and just take care of assigning the arguments to `this`. That means, the following code:
@@ -384,7 +384,7 @@ Person.prototype.greet = function() {
 var me = new Person("Valentino");
 me.greet();
 
-// Output: "Valentino"
+// Output: "Hello Valentino"
 ```
 
 Note that now you need to prefix the function call with `new`. That's called "constructor call" and it's the "standard" syntax for creating new shape of objects in JavaScript. In other words, new does all the hard work for us:
