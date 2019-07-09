@@ -80,7 +80,7 @@ function whoIsThis() {
 whoIsThis();
 ```
 
-What's the output? Spoiler: when a JavaScript function runs in the so called global context `this` will be a reference to said global. And when running in a browser the global points to `window`.
+What's the output? Spoiler: when a JavaScript function runs in the so called global context `this` will be a reference to said global. And when running in a browser the global points to `window`. As you will see JavaScript functions have always a link to some context object: it is an object in which the function is running. The link is not fixed: it can change by accident or could be altered on purpose.
 
 ## Rule number 1: default binding
 
@@ -319,7 +319,7 @@ var newObj = {
 obj.printParams.apply(newObj, ["aa", "bb", "cc"]);
 ```
 
-And what about `bind`? That's the most powerful method for binding functions. `bind` still takes a new context object for a given function but it does not just call the function int the new context object. It returns a new function bound to that object permanently:
+And what about `bind`? That's the most powerful method for binding functions. `bind` still takes a new context object for a given function but it does not just call the function with the new context object. It returns a new function bound to that object permanently:
 
 ```js
 var obj = {
