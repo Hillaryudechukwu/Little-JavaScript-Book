@@ -3,7 +3,7 @@
 ## Table of contents
 
 * [Intro](intro.md)
-* Chapter 1. COMING SOON
+* [Chapter 1. Getting started with JavaScript](chapter1.md)
 * Chapter 2. COMING SOON
 * [Chapter 3. A whirlwind tour of JavaScript engines](chapter3.md)
 * [Chapter 4. Closures and modules in JavaScript](chapter4.md)
