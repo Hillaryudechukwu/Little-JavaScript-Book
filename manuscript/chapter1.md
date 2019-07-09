@@ -62,6 +62,8 @@ You'll find a lot of technical terms in the book. Expert developers know them al
 
 **REST API**: is a web service (local or remote) which exposes data. A REST API makes possible to interact with an underlying database for saving or retrieving entities.
 
+**Transpiler**: older browsers do not support modern JavaScript syntax from ECMAScript 2015 and above. A transpiler is a tool which takes modern JavaScript syntax and spits out a more compatible version (ECMAScript 2009).
+
 **Vanilla JavaScript**: vanilla JavaScript is a term for denoting "pure" JavaScript applications, i.e. those written without the help of a frontend library like React, Vue, or Angular.
 
 **AJAX**: a set of technologies for fetching data in the browser without causing a page refresh. The acronym stands for "Asynchronous JavaScript and XML", coined in 1999.
