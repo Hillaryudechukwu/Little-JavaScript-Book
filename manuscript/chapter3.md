@@ -457,3 +457,13 @@ JavaScript engines have a lot of moving parts: Call Stack, Global Memory, Event 
 Since ES6, JavaScript engines also implement a Microtask Queue. The Microtask Queue is a queue data structure much like the Callback Queue. Only difference is that the Microtask Queue takes all the callbacks triggered by ES6 Promises. These callbacks, also called executors, have precedence over callbacks handled by the Callback Queue. The mechanic is exposed in greater detail by Jake Archibald in [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/).
 
 For simplifying asynchronous code flow ECMAScript 2015 brought us Promises. A Promise is an asynchronous object and is used to represent either the failure or the success of any asynchronous operation. But the improvements did not stop there. In 2017 `async/await` was born: it's a stylistic make up for Promises that makes possible to write asynchronous code as if it was synchronous. And more important makes possible to use `try/catch` for handling errors in asynchronous code.
+
+### Sharpen up your JavaScript skills
+
+- How does the browser is able to understand JavaScript code?
+- What's the main task of the Call Stack?
+- Can you describe the main components of a JavaScript engine and how they work together?
+- What's the Microtask Queue made for?
+- What is a Promise?
+- It is possible to handle errors in asynchronous code? If yes, how?
+- Can you name a couple of methods of the browser API?

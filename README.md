@@ -22,7 +22,13 @@ The second part of the book has a lot of practical exercises with the DOM with a
 
 ## What's the difference between free and paid copy of the book?
 
-[Paid](https://leanpub.com/little-javascript/) and [free PDF](https://www.valentinog.com/little-javascript) version of the book have quizzes at the end of every chapter and more tips and tricks. Also you can expect these versions to be updated faster and to contain more exclusive contents than the free version on Github.
+[Paid](https://leanpub.com/little-javascript/) and [free PDF](https://www.valentinog.com/little-javascript) version of the book have:
+ 
+- **more quizzes** at the end of every chapter
+- **solutions for the exercises**
+- a lot of **tips and best practices**
+ 
+You can expect these versions to be updated faster and to contain more up to date contents than the free version on Github.
 
 ## License & Copyright
 

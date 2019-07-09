@@ -477,3 +477,11 @@ var numFromString = Number('22');
 ## Conclusions
 
 There are seven building blocks in JavaScript, namely String, Number, Boolean, Null, Undefined, Object, and Symbol. These types are called primitives. JavaScript developers can manipulate these types with arithmetic and comparison operators. But we need to pay particular attention to both the addition operator `+` and the abstract comparison operator `==` which by nature tend to convert between types. This implicit conversion in JavaScript is called type coercion and is defined in the ECMAScript spec. Whenever possible in your code use always the strict comparison operator `===` instead of `==`. As a best practice always make clear when you intend to convert between one type and another. For this purpose JavaScript has a bunch of built-in objects which mirror the primitive types: `String`, `Number`, `Boolean`. These built-in can be used for converting explicitly between different types.
+
+### Sharpen up your JavaScript skills
+
+- What's the output of `44 - "alex"`?
+- What's the output of `"alex" + 44` and why?
+- What's the output of `"alex" + { name: "Alex" }`?
+- What's the output of `["alex"] == "alex"` and why?
+- What's the result of `undefined == null` and why?

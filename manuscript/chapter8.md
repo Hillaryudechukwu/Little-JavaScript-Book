@@ -425,3 +425,9 @@ jQuery won't disappear soon but every JavaScript developer must know how to mani
 Every HTML element available in the DOM has an interface exposing a certain number of properties and methods. When in doubt about what method to use head over the excellent docs at [MDN](https://developer.mozilla.org/en-US/). Most common methods for manipulating the DOM are `document.createElement()` for creating a new HTML element, `document.createTextNode()` for creating text nodes inside the DOM. Last but not least there is `.appendChild()` for appending your new HTML element or a text node to an existing element.
 
 While it is nice to have a good knowledge of the native API these days modern front-end libraries offer unquestionable benefits. It is indeed feasible to build a large JavaScript application with "vanilla" JavaScript. But sometimes Angular, React, Vue can help a lot. Sticking with just JavaScript for simpler prototypes and small to medium apps can be a wise move too.
+
+### Sharpen up your JavaScript skills
+
+- What is the difference between `window` and DOM?
+- Name at least 3 useful methods for manipulating tables with JavaScript
+- Given a JavaScript object how can I extract every key from it?

@@ -465,3 +465,15 @@ Click the button again and you'll see an alert as expected. Explicit binding is 
 ## Rule number 4: "new" binding
 
 COMING SOON
+
+## Conclusions
+
+TODO
+
+### Sharpen up your JavaScript skills
+
+- Take `legacyWidget` and `shinyNewWidget` from the explicit binding section and try to refactor the code to use prototype.
+- What's stronger between default and explicit binding?
+- TODO
+- TODO
+- TODO

@@ -347,3 +347,9 @@ var Person = (function() {
 ## Conclusions
 
 Global variables are bad and you should avoid them whenever you can. Sometimes are useful but in JavaScript we must take extra care because the engine takes the liberty to create global variables out of thin air. A number of patterns emerged during the years for taming global variables, the module pattern being one of them. The module pattern builds on closures, an innate feature of JavaScript. A closure in JavaScript is a function able to "remember" its variable's environment, even between subsequent function calls. A closure is created when we return a function from another function, a pattern also known as "factory function".
+
+### Sharpen up your JavaScript skills
+
+- What's the meaning of "closure"?
+- Why global variables are bad?
+- What's a JavaScript module and why you would use it?
