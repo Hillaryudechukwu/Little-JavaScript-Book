@@ -216,7 +216,7 @@ class Button extends React.Component {
 }
 ```
 
-Nowadays React hooks make classes almost unnecessary, yet there are a lot of "legacy" React components out there using ES2015 classes. One of the question most beginners ask is why we re-bind class methods in React with "bind"? Those three methods, `call`, `apply`, `bind` belong to `Function.prototype` and are used for the so called **explicit binding** (rule number 3). It's in the name: explicit binding means taking a function and forcing its home, also called context object, to be one provided by you. But why would I explicitly bind or re-bind a function? Consider some legacy JavaScript code wrote by a fictional, less JavaScript-savvy colleague some years ago:
+Nowadays React hooks make classes almost unnecessary, yet there are a lot of "legacy" React components out there using ES2015 classes. One of the question most beginners ask is why we re-bind event handler methods in React with "bind"? Those three methods, `call`, `apply`, `bind` belong to `Function.prototype` and are used for the so called **explicit binding** (rule number 3). It's in the name: explicit binding means taking a function and forcing its home, also called context object, to be one provided by you. But why would I explicitly bind or re-bind a function? Consider some legacy JavaScript code wrote by a fictional, less JavaScript-savvy colleague some years ago:
 
 ```js
 var legacyWidget = {
@@ -383,15 +383,84 @@ class Button extends React.Component {
 }
 ```
 
-When we assign a class method to a React element the method "thinks": "I should run in the context of that element". React elements in fact are nothing more than JavaScript objects. When a function runs inside an object then that object becomes its "home" and the implicit `this` binding kicks in. In the example above the method `handleClick` (assigned to a button element) tries to update the component's state by calling `this.setState()`. When called the method runs in the context of the button element which is no longer the class itself and you get the dreaded "TypeError: Cannot read property 'setState' of undefined". We say that the function loses its binding. React components are most of the times exported as ES2015 modules: `this` is `undefined` because ES modules use strict mode by default, thus disabling the default binding. To solve the problem we use `bind` for making the method stick to the right context, the class itself:
+But the reality is more nuanced and has something to do with "lost binding". When we assign an event handler as a prop to a React element the method is passed as a reference, not as a function. To speak in terms of "vanilla" JavaScript it's like passing the event handler reference inside another callback:
 
 ```js
-  constructor(props) {
+    // BINDING LOST!
+    const handleClick = this.handleClick;
+    //
+    element.addEventListener("click", function() {
+      handleClick();
+    });
+```
+
+The assignment operation breaks the binding. In the example component above the method `handleClick` (assigned to a button element) tries to update the component's state by calling `this.setState()`. When called, the method has already lost its binding which is no longer the class itself: now its context object is the `window` global object. At that point you get the dreaded "TypeError: Cannot read property 'setState' of undefined". React components are most of the times exported as ES2015 modules: `this` is undefined because ES modules use strict mode by default, thus disabling the default binding. Strict mode is enabled also for ES2015 classes and `this` is undefined even when not exporting the component as an ES module. You can test by yourself with a simple class which mimics a React component. There is a `setState` method called by `handleClick` in response to a click event:
+
+```js
+class ExampleComponent {
+  constructor() {
+    this.state = { text: "" };
+  }
+
+  handleClick() {
+    this.setState({ text: "New text" });
+    alert(`New state is ${this.state.text}`);
+  }
+
+  setState(newState) {
+    this.state = newState;
+  }
+
+  render() {
+    const element = document.createElement("button");
+    document.body.appendChild(element);
+    const text = document.createTextNode("Click me");
+    element.appendChild(text);
+
+    const handleClick = this.handleClick;
+
+    element.addEventListener("click", function() {
+      handleClick();
+    });
+  }
+}
+
+const component = new ExampleComponent();
+component.render();
+```
+
+The offending line of code is:
+
+```js
+const handleClick = this.handleClick;
+```
+
+Try to include the class in an HTML file:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loosing the binding</title>
+</head>
+<body>
+
+</body>
+<script src="this.js"></script>
+</html>
+```
+
+and click the button. Check the console and you'll see "TypeError: Cannot read property 'setState' of undefined". To solve the problem we can use `bind` for making the method stick to the right context, the class itself:
+
+```js
+  constructor() {
+    this.state = { text: "" };
     this.handleClick = this.handleClick.bind(this);
   }
 ```
 
-Explicit binding is stronger than both implicit binding and default binding. With `apply`, `call`, and `bind` we can bend `this` at our own will by providing a dynamic context object to our functions. If "context object" is still too abstract for you think of it as a box in which JavaScript functions run. The box is always there, but we can change its coordinates at any time with an explicit bind.
+Click the button again and you'll see an alert as expected. Explicit binding is stronger than both implicit binding and default binding. With `apply`, `call`, and `bind` we can bend `this` at our own will by providing a dynamic context object to our functions. If "context object" is still too abstract for you think of it as a box in which JavaScript functions run. The box is always there, but we can change its coordinates at any time with an explicit bind.
 
 ## Rule number 4: "new" binding
 
