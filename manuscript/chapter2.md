@@ -12,7 +12,7 @@ The first draft of this book was aiming at experienced JavaScript developers who
 - `Object`
 - `Symbol` (part of ECMAScript 2015)
 
-Except `Object` which is a type, everything else is also called "primitive" of the language. Every JavaScript type has a corresponding representation that can be used in our code, like strings:
+Except `Object` which is a type, everything else is also called "primitive" of the language. Every JavaScript type has a corresponding representation which can be used in our code, like strings:
 
 ```js
 var string = "Hello John";
@@ -26,8 +26,6 @@ var age = 33;
 
 Speaking of which, JavaScript has arithmetic operations too:
 
-| Operator | Operation |
-| :-----: | :-----: | 
 | `+`  | sum |
 | `++`  | increment |
 | `*`  | multiplication |
@@ -135,7 +133,7 @@ var len = array.length
 array.length = 50;
 ```
 
-And now having laid down the fundamentals let's take a look at Object, one of the most important JavaScript type.
+And now having laid down the fundamentals let's take a closer look at Object, one of the most important JavaScript type.
 
 ## Standing on the shoulders of a giant Object
 
@@ -193,7 +191,32 @@ var obj = {
 console.log(obj["complex key"]); // "stuff"
 ```
 
-That should cover the basics. In chapter 5 you'll see the true power of JavaScript objects.
+The dot notation however is more common and unless the key is a complex string you should prefer the traditional property access:
+
+```js
+var obj = {
+  name: "John",
+  age: 33
+};
+
+// Dot notation, more common
+console.log(obj.name); // "John"
+```
+
+over the bracket notation:
+
+```js
+var obj = {
+  name: "John",
+  age: 33
+};
+
+// Bracket notation
+// Not so common if the key is a one word string
+console.log(obj["name"]); // "John"
+```
+
+That's all the basic you need to know, but in chapter 5 we'll see that JavaScript objects are really powerful and can do a lot more. Now let's take a look at JavaScript functions.
 
 ## 50 shades of JavaScript functions
 
@@ -325,13 +348,55 @@ The syntax may look a bit weird, but IIFE are really powerful as you'll see them
 - object method (not so useful)
 - IIFE arrow function (immediately invoked function expression)
 
-Here we'll see just a quick preview. In the next chapter we'll dive into the details. Arrow functions are convenient, but I suggest not overusing them. Here's a named arrow function to start with. We can omit the `return` statement and use parenthesis if there are no parameters:
+Arrow functions are convenient, but I suggest not overusing them. Here's a named arrow function to start with. We can omit the `return` statement and use parenthesis if there are no parameters:
 
 ```js
 const arrow = () => console.log("Silly me");
 ```
 
-and here's an anonymous arrow function passed as a callback to another function:
+If you need to compute something into the arrow function or maybe call other functions you can open a body with curly braces:
+
+```js
+const arrow = () => {
+  const a = callMe();
+  const b = callYou();
+  return a + b;
+};
+```
+
+Curly braces are also the literal form for defining a JavaScript object and that does not mean you can do something like:
+
+```js
+const arrow = () => {
+  a : "hello", 
+  b: "world"
+};
+```
+
+It's invalid syntax and won't ever compile. For returning an object from an arrow function you can use parenthesis:
+
+```js
+const arrow = () => ({
+  a: "hello",
+  b: "world"
+});
+
+console.log(arrow());
+// { a: 'hello', b: 'world' }
+```
+
+Or much better the return statement:
+
+```js
+const arrow = () => {
+  return {
+    a: "hello",
+    b: "world"
+  };
+};
+```
+
+Like regular anonymous functions there are also anonymous arrow functions. Here's one passed as a callback to another function:
 
 ```js
 const arr = [1, 2, 3];
@@ -341,8 +406,60 @@ const res = arr.map(element => element + 1);
 console.log(res); // [ 2, 3, 4 ]
 ```
 
-If there is a single parameter there is no need to put parenthesis around it. Besides that arrow functions are so different from regular functions that an entire book won't enough to cover all the details. But worry not, during the book we'll see why and when to use them effectively.
+It takes `element` as a parameter and returns `element + 1` for each array element. As you see if there is a single parameter for an arrow function there is no need to put parenthesis around it:
+ 
+```js
+const fun = singleParameter => singleParameter + 1;
+```
+
+But if you need more parameters the parenthesis are required:
+
+```js
+const fun = (a, b) => a + b + 1;
+```
+
+Arrow functions can also appear as objects method, but they behave differently from a regular function. I introduced the `this` keyword some paragraph ago, a reference to the object in which a function is running. When called as an object method, regular function point `this` to the "host" object:
+
+```js
+var widget = {
+  html: "<div></div>",
+  showModal: function() {
+    console.log(this.html);
+  }
+};
+
+widget.showModal(); // "<div></div>"
+```
+
+Arrow functions instead have `this` pointing to something totally different:
+
+```js
+var widget = {
+  html: "<div></div>",
+  showModal: () => console.log(this.html)
+};
+
+widget.showModal(); // undefined
+```
+
+Surprise! For that reason arrow function are not well suited as objects method, but there are interesting use cases for them and during the book we'll see why and when to use them effectively. To conclude let's see IIFE arrow functions:
+
+```js
+(() => {
+  console.log("aa");
+})();
+```
+
+Perfectly, valid, confusing syntax don't you think? And now let's move on to the next chapter!
 
 ## Conclusions
 
-COMING SOON
+JavaScript has seven fundamental building blocks called "types", of which six are known also as "primitives". Object is a type on it's own, being also the most important entity of the language. Objects are containers for pairs of keys/values and can contain almost every other JavaScript primitive, including functions. Like most other programming languages JavaScript has strings, numbers, functions, booleans and a couple of special types called `Null` and `Undefined`. There are two species of functions in JavaScript: arrow functions (added in ECMAScript 2015) and regular functions. Both have their use cases and you'll learn with the experience when and how to use one instead of the other.
+
+## Sharpen up your JavaScript skills
+
+- What's the difference between arguments and parameters?
+- How many primitives there are in JavaScript?
+- What's a regular arrow function?
+- What special keyword a function has access to when it runs as an object method?
+- How many ways there are for declaring variables in JavaScript?
