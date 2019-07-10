@@ -68,6 +68,10 @@ You'll find a lot of technical terms in the book. Expert developers know them al
 
 **AJAX**: a set of technologies for fetching data in the browser without causing a page refresh. The acronym stands for "Asynchronous JavaScript and XML", coined in 1999.
 
+## A special note on ES2015
+
+ECMAScript 2015 (ES6) is one of the most important releases ever for JavaScript. It introduced a lot of improvements into the language and in this book you'll find the most important ECMAScript 2015 features like Promise, arrow functions, class, and more. I wish I could go through every tiny bit of ECMAScript 2015 here, but another book would not be enough to cover them all. Instead I took another path and I decided to include just the most relevant features strategically, here and there during the chapters. If you want to learn ECMAScript 2015 in depth after reading this book I highly suggest one of my favourite essay on the subject: [Exploring ES6](https://exploringjs.com/es6/) by Axel Rauschmayer.
+
 ## Conclusions
 
 JavaScript was born in 1995 as a scripting language for the web. Since then it gained massive traction and today we can say with certainty that JavaScript has become the lingua franca of the web. JavaScript is used in many environments and developers well versed in this language are highly paid nowadays. But jQuery, one of the most used JavaScript library back in the days is not enough anymore as a skill. JavaScript developers should know the intricacies of JavaScript and being able to structure the code well, other than being able to understand legacy JavaScript applications.
