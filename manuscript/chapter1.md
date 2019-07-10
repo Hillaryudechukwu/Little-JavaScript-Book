@@ -67,3 +67,13 @@ You'll find a lot of technical terms in the book. Expert developers know them al
 **Vanilla JavaScript**: vanilla JavaScript is a term for denoting "pure" JavaScript applications, i.e. those written without the help of a frontend library like React, Vue, or Angular.
 
 **AJAX**: a set of technologies for fetching data in the browser without causing a page refresh. The acronym stands for "Asynchronous JavaScript and XML", coined in 1999.
+
+## Conclusions
+
+JavaScript was born in 1995 as a scripting language for the web. Since then it gained massive traction and today we can say with certainty that JavaScript has become the lingua franca of the web. JavaScript is used in many environments and developers well versed in this language are highly paid nowadays. But jQuery, one of the most used JavaScript library back in the days is not enough anymore as a skill. JavaScript developers should know the intricacies of JavaScript and being able to structure the code well, other than being able to understand legacy JavaScript applications.
+
+## Sharpen up your JavaScript skills
+
+- What is an API?
+- What is JavaScript used for?
+- How many versions of JavaScript have been released since 1995?
