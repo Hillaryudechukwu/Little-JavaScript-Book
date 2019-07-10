@@ -48,4 +48,4 @@ I've been in love with computers since my mother gave me the first PC when I was
 
 ## Acknowledgments
 
-This book would not have been possibile without the clever questions I've got during the years from dozens of developers. A huge thanks goes also to all the people who helped shape the beta version of this book: Caterina Vicenti, Alessandro Muraro, Cristiano Bianchi, Irene Tomaini, Roberto Mossetto, Ricardo Antonio Piana, Alessio Forti, Valentino Pellegrino, Mauro De Falco, Sandro Cantagallo, Maurizio Zannoni.
+This book would not have been possible without the clever questions I've got during the years from dozens of developers. A huge thanks goes also to all the people who helped shape the beta version of this book: Caterina Vicenti, Alessandro Muraro, Cristiano Bianchi, Irene Tomaini, Roberto Mossetto, Ricardo Antonio Piana, Alessio Forti, Valentino Pellegrino, Mauro De Falco, Sandro Cantagallo, Maurizio Zannoni.

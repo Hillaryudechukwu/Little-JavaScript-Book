@@ -129,7 +129,7 @@ The Event Loop has just one job for now: it should check whether the Call Stack 
 
 ![More boxes: Callback Queue, Browser APIs, Event Loop](images/event-loop.png)
 
-Imagine that `callback()` is ready to be executed. When `pow()` finishes the Call Stack is empty and the Event Loop pushes `callback()` in. That's it! If you understand the illustration above then your ready to understand all the JavaScript. Remember: Browser APIs, Callback Queue, and Event Loop are the pillars of asynchronous JavaScript. And if you fancy videos I suggest watching [What the heck is the event loop anyway](https://www.youtube.com/watch?v=8aGhZQkoFbQ) by Philip Roberts. It's one of the best explanation ever of the Event Loop. Hold on though because we're not done with asynchronous JavaScript. In the next sections we'll take a closer look at ES6 Promises.
+Imagine that `callback()` is ready to be executed. When `pow()` finishes the Call Stack is empty and the Event Loop pushes `callback()` in. That's it! If you understand the illustration above then you are ready to understand all the JavaScript. Remember: Browser APIs, Callback Queue, and Event Loop are the pillars of asynchronous JavaScript. And if you fancy videos I suggest watching [What the heck is the event loop anyway](https://www.youtube.com/watch?v=8aGhZQkoFbQ) by Philip Roberts. It's one of the best explanation ever of the Event Loop. Hold on though because we're not done with asynchronous JavaScript. In the next sections we'll take a closer look at ES6 Promises.
 
 ## Callback hell and ES6 Promises
 
