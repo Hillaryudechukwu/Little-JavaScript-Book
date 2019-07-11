@@ -26,6 +26,8 @@ var age = 33;
 
 Speaking of which, JavaScript has arithmetic operations too:
 
+| Operator | Operation |
+| :------: | :------: |
 | `+`  | sum |
 | `++`  | increment |
 | `*`  | multiplication |
