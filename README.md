@@ -4,11 +4,9 @@ Ever dreamed of a JavaScript book focused on the "hard parts" while being beginn
 
 * [Read online (free)](manuscript/README.md)
 * [Buy on Leanpub](https://leanpub.com/little-javascript/)
-* [Download a PDF (free)](https://www.valentinog.com/little-javascript)
+* [Download PDF/EPub/Mobi (free)](https://www.valentinog.com/little-javascript)
 
-**More chapters will come in the next weeks!**
-
-**NOTE: At this moment the book is still work in progress and I'm not accepting pull requests. Open an issue if you find errors or typos. Once the book is stabilized I'll add contribution guidelines and you'll be able to submit a PR. Thanks a lot!**
+**NOTE: The book is still work in progress and I'm not accepting pull requests. Open an issue if you find errors or typos. Once the book is stabilized I'll add contribution guidelines and you'll be able to submit a PR. Thanks a lot!**
 
 ## Motivation
 
