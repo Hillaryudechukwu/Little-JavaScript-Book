@@ -12,5 +12,5 @@
 * [Chapter 7. Types, conversion, and comparison in JavaScript](chapter7.md)
 * [Chapter 8. Manipulating HTML elements with JavaScript](chapter8.md)
 * Chapter 9. COMING SOON
-* Chapter 10. COMING SOON
+* [Chapter 10. Working with asynchronous JavaScript](chapter10.md)
 * Chapter 11. COMING SOON
