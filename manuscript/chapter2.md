@@ -52,7 +52,7 @@ var obj = {
 };
 ```
 
-Values can be stored in a variable with the `var` keyword, the most compatible way for declaring variables:
+In JavaScript, values can be stored in a variable with the `var` keyword, the most compatible way for declaring variables:
 
 ```js
 var greet = "Hello";
@@ -60,7 +60,95 @@ var year = 89;
 var not = false;
 ```
 
-I said compatible because with ECMAScript 2015 we have two other options: `let` and `const`. Older browsers may not support these new keywords and unless using a "transpiler" (see chapter 1 for terminology) you may run into errors. Besides stand-alone variables it is also possible to declare list of entities, the array:
+I said compatible because with ECMAScript 2015 we have two other options: `let` and `const`. Older browsers may not support these new keywords and unless using a "transpiler" (see chapter 1 for terminology) you may run into errors. In newer browser instead you can reap the benefits of `let` and `const` which differ from `var` in two ways:
+
+- both `let` and `const` create their own "bubble" (scope)
+- `const` cannot be reassigned, nor re-declared
+
+By "bubble" I mean that a variable declared with `let` or `const` do not overlap with the same variable name declared in an enclosing or in an outer "bubble". For example:
+
+```js
+let name = "John";
+
+{
+  let name = "Valentino";
+  console.log(name); // "Valentino"
+}
+
+console.log(name); // "John"
+```
+
+Here `name` seems a duplicate, but in reality it is two different variables in their own bubble. `const` has the same behaviour:
+
+```js
+const name = "John";
+
+{
+  const name = "Valentino";
+  console.log(name); // "Valentino"
+}
+
+console.log(name); // "John"
+```
+
+The same code with `var` instead behaves in a different way:
+
+```js
+var name = "John";
+
+{
+  var name = "Valentino";
+  console.log(name); // "Valentino"
+}
+
+console.log(name); // "Valentino"
+```
+
+As I said `const` cannot be reassigned, nor re-declared in the same bubble. If you try to re-declare a `const` you get "SyntaxError: Identifier has already been declared". And if you reassign some value to the same constant you get "TypeError: Assignment to constant variable". The following example throws an error:
+
+```js
+const name = "John";
+const name = "Valentino";
+
+// SyntaxError: Identifier 'name' has already been declared
+```
+
+and this code throws as well:
+
+```js
+const name = "John";
+name = "Valentino";
+
+// TypeError: Assignment to constant variable.
+```
+
+But please, pay attention because when we say "const cannot be reassigned, nor re-declared" that does not mean `const` is immutable. That's a topic that trips up literally every JavaScript developer I talk to. In fact any slightly more complex JavaScript data structure like array or object is more than mutable even when assigned to a `const`:
+
+```js
+const person = {
+  name: "John",
+  age: 21
+};
+
+person.name = "Valentino";
+
+console.log(person);
+
+// { name: 'Valentino', age: 21 }
+// Oh, I wish I was 21 for real!
+```
+
+How is that immutable? Here's an array:
+
+```js
+const list = [1, 1, 3, 2, 5];
+
+list.shift();
+
+console.log(list); // [ 1, 3, 2, 5 ]
+```
+
+Again, **not immutable**. Next time someone says "const is immutable", show him/her a couple of tricks. And now back to fundamentals. Besides stand-alone variables it is also possible to declare list of entities, the array:
 
 ```js
 var array = ["Hello", 89, false, true];
