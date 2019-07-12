@@ -540,7 +540,7 @@ Surprise! For that reason arrow function are not well suited as objects method, 
 })();
 ```
 
-Perfectly, valid, confusing syntax don't you think? And now let's move on to the next chapter!
+Valid, confusing syntax isn't? And now let's move on to the next chapter!
 
 ## Conclusions
 
