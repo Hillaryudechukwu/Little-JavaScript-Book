@@ -466,6 +466,82 @@ Click the button again and you'll see an alert as expected. Explicit binding is 
 
 COMING SOON
 
+## Arrow functions and "this"
+
+As seen on chapter 2 ECMAScript 2015 introduced arrow functions (also called fat arrows). The syntax for an arrow function is convenient and concise, but again, I suggest not abusing them. However, arrow functions have a lot of interesting features. First consider a constructor function called `Post`. As soon as we create a new object from the constructor there's a Fetch request against a REST API:
+
+```js
+"use strict";
+
+function Post(id) {
+  this.data = [];
+
+  fetch("https://jsonplaceholder.typicode.com/posts/" + id)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      this.data = json;
+    });
+}
+
+var post1 = new Post(3);
+```
+
+The above code is in strict mode, thus default binding (falling back to the global `this`) is forbidden. Try to run the code in your browser and you'll be surprised by: "TypeError: Cannot set property 'data' of undefined at <anonymous>:11:17". Cannot set property data of undefined! Makes sense. The global `this` is `undefined` in strict mode ... wait a minute. Why our function is trying to update `window.data` instead of `post1.data`? The reason is simple: the callback triggered by Fetch runs inside the browser, so `this` points to `window`. Scary. To solve the problem we had an old trick: "that". In other words you can save a reference to `this` in a variable called `that`, but this time outside the callback function:
+
+```js
+"use strict";
+
+function Post(id) {
+  var that = this;
+  this.data = [];
+
+  fetch("https://jsonplaceholder.typicode.com/posts/" + id)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      that.data = json;
+    });
+}
+
+var post1 = new Post(3);
+```
+
+if you run the code now `post1.data` will have our data as expected:
+
+```js
+console.log(post1.data.body);
+
+// "et iusto sed quo iure
+// voluptatem occaecati omnis eligendi aut ad
+// voluptatem doloribus vel accusantium quis pariatur
+// molestiae porro eius odio et labore et velit aut"
+```
+
+What if instead of this old, hacky trick we don't try to use arrow functions? One of the most interesting feature indeed is how they handle `this`. Instead of regular functions we can use arrow functions as callbacks:
+
+```js
+"use strict";
+
+function Post(id) {
+  this.data = [];
+
+  fetch("https://jsonplaceholder.typicode.com/posts/" + id)
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      this.data = json;
+    });
+}
+
+var post1 = new Post(3);
+```
+
+Problem gone. Now `this.data` will point always at `post1`. Why so? The arrow function has `this` pointing at its enclosing environment (the official documentation and most tutorials say "its lexical scope"). In other words the arrow function doesn't care if it's running inside the `window` object. Its enclosing environment is the object `post1` and that will be its home from now on. One of the most interesting use cases for arrow functions, for sure.
+
 ## Conclusions
 
 TODO
@@ -474,6 +550,6 @@ TODO
 
 - Take `legacyWidget` and `shinyNewWidget` from the explicit binding section and try to refactor the code to use prototype.
 - What's stronger between default and explicit binding?
-- TODO
+- **BONUS exercise**: "Creeping into `this`" available on [PDF/EPub/Mobi](https://www.valentinog.com/little-javascript) and [paid version](https://leanpub.com/little-javascript/)
 - TODO
 - TODO
