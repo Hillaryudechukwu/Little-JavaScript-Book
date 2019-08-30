@@ -3,8 +3,7 @@
 Ever dreamed of a JavaScript book focused on the "hard parts" while being beginner friendly? If you answered yes then you will love "The Little JavaScript Book".
 
 * [Read online (free)](manuscript/README.md)
-* [Buy on Leanpub](https://leanpub.com/little-javascript/)
-* [Download PDF/EPub/Mobi (free)](https://www.valentinog.com/little-javascript)
+* [Pre-order on Leanpub](https://leanpub.com/little-javascript/)
 
 **NOTE: The book is still work in progress and I'm not accepting pull requests. Open an issue if you find errors or typos. Once the book is stabilized I'll add contribution guidelines and you'll be able to submit a PR. Thanks a lot!**
 
@@ -16,17 +15,15 @@ As much as I love "You don't know JS" and "Eloquent JavaScript" I feel there is 
 
 The "Little JavaScript Book" is organized in three parts. The first part covers the inner working of JavaScript engines and the "hard parts" of the language: closures, the prototype system, this and new. Every chapter ends with a self-assessment test which is useful for making the concepts stick.
 
-The second part of the book has a lot of practical exercises with the DOM with a lot of pages covering code organization and best practices. The third and last part contains solutions for the exercises and future additions to the book.
+The second part of the book has a lot of practical exercises with the DOM and a lot of pages covering code organization and best practices. The third and last part contains solutions for the exercises and future additions to the book.
 
 ## What's the difference between free and paid copy of the book?
 
-[Paid](https://leanpub.com/little-javascript/) and [free PDF](https://www.valentinog.com/little-javascript) version of the book have:
+The [paid](https://leanpub.com/little-javascript/) version has:
  
 - **more quizzes** at the end of every chapter
 - **solutions for the exercises**
 - a lot of **tips and best practices**
- 
-You can expect these versions to be updated faster and to contain more up to date contents than the free version on Github.
 
 ## License & Copyright
 
