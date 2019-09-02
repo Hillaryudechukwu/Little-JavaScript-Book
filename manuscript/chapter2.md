@@ -356,7 +356,7 @@ A JavaScript function declared with the `function` keyword is a regular function
 - named function
 - anonymous function
 - object method
-- object method shortand (ECMAScript 2015)
+- object method shorthand (ECMAScript 2015)
 - IIFE (immediately invoked function expression)
 
 Named functions are the most traditional type of function:
@@ -398,7 +398,7 @@ var widget = {
 widget.showModal();
 ```
 
-Regular functions also get by default a `this` keyword which can assume different meanings depending on how the function is called. In chapter 6 we'll explore the topic in detail. For now take for granted a simple rule: a function running inside an object has `this` pointing to the host object:
+Regular functions also get by default a `this` keyword which can assume different meanings depending on how the function is called. In chapter 6 we'll explore the topic in detail. For now take for granted a simple rule: a function running inside an object has `this` pointing to the containing object:
 
 ```js
 var widget = {
@@ -411,7 +411,7 @@ var widget = {
 widget.showModal(); // "<div></div>"
 ```
 
-In ECMAScript 2015 you can also use object method shortand and write methods like so:
+In ECMAScript 2015 you can also use object method shorthand and write methods like so:
 
 ```js
 var widget = {
@@ -544,7 +544,7 @@ Valid, confusing syntax isn't? And now let's move on to the next chapter!
 
 ## Conclusions
 
-JavaScript has seven fundamental building blocks called "types", of which six are known also as "primitives". Object is a type on it's own, being also the most important entity of the language. Objects are containers for pairs of keys/values and can contain almost every other JavaScript primitive, including functions. Like most other programming languages JavaScript has strings, numbers, functions, booleans and a couple of special types called `Null` and `Undefined`. There are two species of functions in JavaScript: arrow functions (added in ECMAScript 2015) and regular functions. Both have their use cases and you'll learn with the experience when and how to use one instead of the other.
+JavaScript has seven fundamental building blocks called "types", of which six are known also as "primitives". Object is a type on it's own, being also the most important entity of the language. Objects are containers for pairs of keys/values and can contain almost every other JavaScript primitive, including functions. Like most other programming languages JavaScript has strings, numbers, functions, booleans and a couple of special types called `Null` and `Undefined`. There are two species of functions in JavaScript: arrow functions (added in ECMAScript 2015) and regular functions. Both have their use cases and you'll learn with experience when and how to use one instead of the other.
 
 ## Sharpen up your JavaScript skills
 
