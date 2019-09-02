@@ -80,9 +80,9 @@ function whoIsThis() {
 whoIsThis();
 ```
 
-What's the output? Spoiler: when a JavaScript function runs in the so called global context `this` will be a reference to said global. And when running in a browser the global points to `window`. As you will see JavaScript functions have always a link to some context object: it is an object in which the function is running. The link is not fixed: it can change by accident or could be altered on purpose.
+What's the output? Spoiler: when a JavaScript function runs in the so called global context `this` will be a reference to said global. And when running in a browser the global points to `window`. As you will see JavaScript functions have always a link to some context object: it is an object in which the function is running. The link is not fixed: it can change by accident or could be altered on purpose. But the reassuring fact is that there are still rules for determining where `this` should point to. Let's break them down.
 
-## Rule number 1: default binding
+## Rule number 1: falling back to the global "this" (aka default binding)
 
 If you run the following code in a browser:
 
@@ -94,7 +94,7 @@ function whoIsThis() {
 whoIsThis();
 ```
 
-you'll see the output:
+you'll see the following output:
 
 ```js
 Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}
@@ -137,7 +137,7 @@ whoIsThis();
 
 Strict mode makes your JavaScript code more secure and (almost) free from silly bugs like that. So to recap, default binding is the first rule of `this` in JavaScript: when the engine can't figure out what `this` is it falls back to the global object. But that's only half of the story because there are 3 other rules for `this`. Let's see them together.
 
-## Rule number 2: implicit binding
+## Rule number 2: when "this" is my host object (aka implicit binding)
 
 "Implicit binding" is an intimidating term, but the theory behind it is not so complicated. It all narrows down to objects. It's no surprise that JavaScript objects can contain functions:
 
@@ -178,9 +178,9 @@ function whoIsThis() {
 console.log(typeof window.whoIsThis)
 ```
 
-and you'll get back "function". And this point you might be asking: what's the real rule for `this` inside a global function? It's called default binding but in reality is more like of an implicit binding. Confusing right? It's JavaScript after all! Just remember that the JavaScript engine always falls back to the global `this` when in doubt about the context (default binding). On the other hand when a function is defined inside a JavaScript object and is called as part of that object then there is no other way around: `this` refers to the host object (implicit binding). And now let's see what is the third rule for `this` in JavaScript.
+and you'll get back "function". And this point you might be asking: what's the real rule for `this` inside a global function? It's called default binding but in reality is more like of an implicit binding. Confusing right? It's JavaScript after all! Just remember that the JavaScript engine always falls back to the global `this` when in doubt about the context (default binding). On the other hand when a function is defined inside a JavaScript object and is called as part of that object then there is no other way around: `this` refers to the host object (implicit binding). And now let's see the third rule for `this` in JavaScript.
 
-## Rule number 3: explicit binding
+## Rule number 3: tell me how is "this" (aka explicit binding)
 
 There is no JavaScript developer that at some point in her/his career didn't see code like this:
 
@@ -256,7 +256,7 @@ var shinyNewWidget = {
 };
 ```
 
-At this point you can call `call` on the original method:
+At this point you can run `call` on the original method:
 
 ```js
 var legacyWidget = {
@@ -464,7 +464,56 @@ Click the button again and you'll see an alert as expected. Explicit binding is 
 
 ## Rule number 4: "new" binding
 
-COMING SOON
+In chapter 5 you saw the constructor function pattern which helps encapsulating the act of creating new objects in JavaScript:
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.greet = function() {
+  console.log("Hello " + this.name);
+};
+
+var me = new Person("Valentino");
+me.greet();
+
+// Output: "Hello Valentino"
+```
+
+Here we create a blueprint for an entity named "Person". Given that blueprint we can create new objects of type Person by "constructing" them with a "new" call:
+
+```js
+var me = new Person("Valentino");
+```
+
+There are many ways to bend `this` in JavaScript, but when using `new` on a constructor function the engine has no doubts: `this` will always point to the newly created object. Any function defined on the prototype of the constructor function like the following:
+
+```js
+Person.prototype.greet = function() {
+  console.log("Hello " + this.name);
+};
+```
+
+will always know "who is `this`" because most of the times it will operate on the newly host object. In the following example `greet` is called on `me`:
+
+```js
+var me = new Person("Valentino");
+me.greet();
+
+// Output: "Hello Valentino"
+```
+
+Since `me` has been constructed through a constructor call there is no ambiguity about the meaning of `this`. Granted, you can still borrow `greet` from Person and run it against another object:
+
+```js
+Person.prototype.greet.apply({ name: "Tom" });
+
+// Output: "Hello Tom"
+```
+
+As you can see `this` in JavaScript is highly flexible, but without knowing the rules on which `this` lays down you cannot make educated guesses, neither harness its true power. Long story short `this` is based on four "simple" rules, but with ES 2015 arrow functions you can actually "cheat" a bit if `this` comes to bite you. Let's see how.
 
 ## Arrow functions and "this"
 
@@ -544,12 +593,10 @@ Problem gone. Now `this.data` will point always at `post1`. Why so? The arrow fu
 
 ## Conclusions
 
-TODO
+What's `this` in JavaScript? Well, it depends. `this` builds on four rules, called respectively: default binding, implicit binding, explicit binding, and "new" binding. Implicit binding says that when a function refers to `this` and runs as part of a JavaScript object `this` will point to that "host" object. But JavaScript functions always run inside an object, that's the case for example of any global function defined in the so called global scope. When working in a browser the global scope is `window`, the current browser's tab. In this situation any function running in global will see `this` as `window`: it's the default binding of `this`. Most of the times it's not desirable to interact with the global scope so that JavaScript offers a way to neutralize the default binding with strict mode. In strict mode any reference to the global object is undefined, effectively protecting us from silly mistakes. Besides implicit and default binding there is also "explicit binding", used for bending `this` at our own will with three methods: `apply`, `call`, and `bind`. These methods are useful for passing an explicit host object on which a given function should operate. Last but not least there is the "new" binding which takes action when an object is "constructed" through a so called constructed call. For most developers `this` is a scary thing and must be avoided at all the costs. But for those who want to dig deeper it's a powerful and flexible system for reusing your JavaScript code. Embrace it!
 
 ### Sharpen up your JavaScript skills
 
 - Take `legacyWidget` and `shinyNewWidget` from the explicit binding section and try to refactor the code to use prototype.
 - What's stronger between default and explicit binding?
-- **BONUS exercise**: "Creeping into `this`" available on [PDF/EPub/Mobi](https://www.valentinog.com/little-javascript) and [paid version](https://leanpub.com/little-javascript/)
-- TODO
-- TODO
+- **BONUS exercise**: "Creeping into `this`" available in the [paid version](https://leanpub.com/little-javascript/)
