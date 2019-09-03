@@ -13,4 +13,4 @@
 * [Chapter 8. Manipulating HTML elements with JavaScript](chapter8.md)
 * Chapter 9. COMING SOON
 * [Chapter 10. Working with asynchronous JavaScript](chapter10.md)
-* Chapter 11. COMING SOON
+* [Chapter 11. HTML forms and playing with localStorage](chapter11.md)
