@@ -709,6 +709,8 @@ Almost everything in JavaScript is an object. Literally. JavaScript objects are 
 
 ### Sharpen up your JavaScript skills
 
+**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
+
 - How would you create an immutable JavaScript object?
 - What is a constructor call?
 - What is a constructor function?

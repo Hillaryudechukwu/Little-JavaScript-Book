@@ -440,5 +440,7 @@ TODO
 
 ### Sharpen up your JavaScript skills
 
+**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
+
 - What's the default behaviour of HTML forms? It's possible to disable it?
 - Is there a way to capture HTML form values from a JavaScript function?

@@ -480,6 +480,8 @@ There are seven building blocks in JavaScript, namely String, Number, Boolean, N
 
 ### Sharpen up your JavaScript skills
 
+**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
+
 - What's the output of `44 - "alex"`?
 - What's the output of `"alex" + 44` and why?
 - What's the output of `"alex" + { name: "Alex" }`?

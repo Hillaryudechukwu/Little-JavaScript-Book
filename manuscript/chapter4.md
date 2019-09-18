@@ -350,6 +350,8 @@ Global variables are bad and you should avoid them whenever you can. Sometimes a
 
 ### Sharpen up your JavaScript skills
 
+**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
+
 - What's the meaning of "closure"?
 - Why global variables are bad?
 - What's a JavaScript module and why you would use it?

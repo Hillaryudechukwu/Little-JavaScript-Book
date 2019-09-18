@@ -460,6 +460,8 @@ For simplifying asynchronous code flow ECMAScript 2015 brought us Promises. A Pr
 
 ### Sharpen up your JavaScript skills
 
+**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
+
 - How does the browser is able to understand JavaScript code?
 - What's the main task of the Call Stack?
 - Can you describe the main components of a JavaScript engine and how they work together?

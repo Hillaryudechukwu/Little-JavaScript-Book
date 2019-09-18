@@ -597,6 +597,8 @@ What's `this` in JavaScript? Well, it depends. `this` builds on four rules, call
 
 ### Sharpen up your JavaScript skills
 
+**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
+
 - Take `legacyWidget` and `shinyNewWidget` from the explicit binding section and try to refactor the code to use prototype.
 - What's stronger between default and explicit binding?
 - **BONUS exercise**: "Creeping into `this`" available in the [paid version](https://leanpub.com/little-javascript/)

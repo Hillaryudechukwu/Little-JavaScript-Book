@@ -876,6 +876,8 @@ TODO
 
 ## Sharpen up your JavaScript skills
 
+**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
+
 - What is a polyfill?
 - TODO
 - TODO

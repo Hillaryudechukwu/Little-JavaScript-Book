@@ -548,6 +548,8 @@ JavaScript has seven fundamental building blocks called "types", of which six ar
 
 ## Sharpen up your JavaScript skills
 
+**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
+
 - What's the difference between arguments and parameters?
 - How many primitives there are in JavaScript?
 - What's a regular arrow function?
