@@ -18,9 +18,7 @@ The Document Object Model is a fundamental concept at the base of everything we 
 </html>
 ```
 
-When the browser scan through the HTML above it creates a Document Object Model which is a mirror of our HTML structure.
-
-At the top of this structure there is `document` also called root element, which contains another element: `html`. The `html` element contains an `head` which in turn has a `title`. Then we have `body` containing an `h1`. Every HTML element is represented by a specific type (also called interface) and may contains text or other nested elements:
+When the browser scans through the HTML above it creates a Document Object Model which is a mirror of our HTML structure. At the top of this structure there is `document` also called root element, which contains another element: `html`. The `html` element contains an `head` which in turn has a `title`. Then we have `body` containing an `h1`. Every HTML element is represented by a specific type (also called interface) and may contains text or other nested elements:
 
 ```ascii
 document (HTMLDocument)
