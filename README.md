@@ -25,6 +25,7 @@ The [paid](https://leanpub.com/little-javascript/) version has:
 - **more quizzes** at the end of every chapter
 - **solutions for the exercises**
 - a lot of **tips and best practices**
+- bonus chapter
 
 ## License & Copyright
 

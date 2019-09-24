@@ -11,6 +11,6 @@
 * [Chapter 6. This in JavaScript](chapter6.md)
 * [Chapter 7. Types, conversion, and comparison in JavaScript](chapter7.md)
 * [Chapter 8. Manipulating HTML elements with JavaScript](chapter8.md)
-* Chapter 9. COMING SOON
-* [Chapter 10. Working with asynchronous JavaScript](chapter10.md)
-* [Chapter 11. HTML forms and playing with localStorage](chapter11.md)
+* [Chapter 9. Working with asynchronous JavaScript](chapter9.md)
+* [Chapter 10. HTML forms and playing with localStorage](chapter10.md)
+* Chapter 11. Code documentation with JSDoc and first steps with TypeScript (paid version) 
