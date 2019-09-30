@@ -445,7 +445,242 @@ Refresh **form.html** again, fill the form and you should see:
 ]
 ```
 
-Great job. Now let's turn our attention to localStorage.
+Great job. There is an empty value `undefined` though. It comes from the button element. The default behaviour of `map` is to return `undefined` in case of "empty" values. Since we checked `if (formInput.type !== "submit")` the button element is not returned from `map` and gets replaced by `undefined`. We can remove it later, now let's turn our attention to localStorage.
+
+## Getting to know localStorage and laying out our classes
+
+Sooner or later you will need to persist some data for your users. There are many reasons to do so. Think of a note app for example. A user may insert new things to do into an HTML form and later come back to see those notes. Next time she opens the page she'll find everything there. What options do we have for saving data in the browser? A serious approach for persisting data would involve a database, but here we have just some HTML, JavaScript, and a browser. Yet not everything is lost. There is a built-in tool available in modern browsers, acting like a very simple database, perfectly suited for our needs: [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage). localStorage behaves like a JavaScript object, it has a bunch of methods like:
+
+- `setItem` for saving data
+- `getItem` for reading data
+- `clear` for cleaning up the "database"
+- `removeItem` for removing data
+
+In a moment we'll see `setItem` and `getItem` in action for our simple "app", but first let's see where we left.
+
+W> ### Don't store sensitive data in localStorage
+localStorage should be used for what it is: a super simple "database" for persisting user preferences, simple data, and nothing more. You might be tempted to save everything into it, like passwords or authentication credentials. If so [please stop](https://www.rdegges.com/2018/please-stop-using-local-storage/).
+
+So here it is. We have an HTML form in **form.html** for inserting notes:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML forms and JavaScript</title>
+</head>
+<body>
+<h1>What's next?</h1>
+<form>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required minlength="5">
+
+    <label for="description">Short description</label>
+    <input type="text" id="description" name="description" required minlength="5">
+
+    <label for="task">Task</label>
+    <textarea id="task" name="task" required minlength="10"></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+<script src="form.js"></script>
+</html>
+```
+
+We also have the related JavaScript code for intercepting the submit event:
+
+```javascript
+"use strict";
+
+class Form {
+  constructor(formSelector) {
+    this.formSelector = formSelector;
+    this.init();
+  }
+
+  init() {
+    this.formSelector.addEventListener("submit", this.handleSubmit);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const inputList = Array.from(event.target.elements, function(formInput) {
+      if (formInput.type !== "submit") {
+        return {
+          name: formInput.name,
+          value: formInput.value
+        };
+      }
+    });
+
+    console.log(inputList);
+
+    /*
+      TODO this.saveData( maybe inputList ?)
+     */
+  }
+
+  saveData(payload) {
+    console.log(payload);
+  }
+}
+
+const formSelector = document.forms[0];
+
+new Form(formSelector);
+```
+
+At this point we need to implement `this.saveData` for saving every note to localStorage. While doing so we'll need to stay as generic as possible. In other words I don't want to fill `this.saveData` with the logic for saving directly to localStorage. Instead we'll provide the `Form` class with an external dependency (another class) whose role is implementing the actual code. It doesn't matter whether we'll persist the notes to localStorage or to a database in the future. We should be able to give `Form` a different "storage" for every use case, switching from one to another as the requirements change. For doing so let's first adjust `constructor` for accepting a new "storage" argument:
+
+```javascript
+class Form {
+  constructor(formSelector, storage) {
+    this.formSelector = formSelector;
+    this.storage = storage;
+    this.init();
+  }
+
+  init() {
+    this.formSelector.addEventListener("submit", this.handleSubmit);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const inputList = Array.from(event.target.elements, function(formInput) {
+      if (formInput.type !== "submit") {
+        return {
+          name: formInput.name,
+          value: formInput.value
+        };
+      }
+    });
+  }
+
+  saveData(payload) {
+    console.log(payload);
+  }
+}
+```
+
+Now, as the class starts growing up so the need for validating the arguments of `constructor`. Being a class designed for working with HTML forms we need at least to check that `formSelector` is an HTML element of type form. Here's how I'd check it:
+
+```javascript
+  constructor(formSelector, storage) {
+    // Validating the arguments
+    if (!(formSelector instanceof HTMLFormElement))
+      throw Error(`Expected a form element got ${formSelector}`);
+    //
+    this.formSelector = formSelector;
+    this.storage = storage;
+    this.init();
+  }
+```
+
+This will make the code fail if we pass something that's not a form. I'd also validate `storage` because we have to send the user input somewhere:
+
+```javascript
+  constructor(formSelector, storage) {
+    // Validating the arguments
+    if (!(formSelector instanceof HTMLFormElement))
+      throw Error(`Expected a form element got ${formSelector}`);
+    // Validating the arguments
+    if (!storage) throw Error(`Expected a storage, got ${storage}`);
+    //
+    this.formSelector = formSelector;
+    this.storage = storage;
+    this.init();
+  }
+```
+
+The storage implementation will be another class. In our case could be something like a generic `LocalStorage`. Still in **form.js** create a minimal implementation of the class:
+
+```javascript
+class LocalStorage {
+  save() {
+    return "saveStuff";
+  }
+
+  get() {
+    return "getStuff";
+  }
+}
+```
+
+Nice. Now with the structure in place we can wire up `Form` and `LocalStorage`:
+
+- `saveData` in `Form` should call the `Storage` implementation
+- `LocalStorage.save` and `LocalStorage.get` can be static
+
+Still in **form.js**, change the class methods like so:
+
+```javascript
+"use strict";
+
+/*
+Form implementation
+ */
+class Form {
+  constructor(formSelector, storage) {
+    // Validating the arguments
+    if (!(formSelector instanceof HTMLFormElement))
+      throw Error(`Expected a form element got ${formSelector}`);
+    // Validating the arguments
+    if (!(storage instanceof Storage))
+      throw Error(`Expected a storage, got ${storage}`);
+    //
+    this.formSelector = formSelector;
+    this.storage = storage;
+    this.init();
+  }
+
+  init() {
+    this.formSelector.addEventListener("submit", this.handleSubmit);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const inputList = Array.from(event.target.elements, function(formInput) {
+      if (formInput.type !== "submit") {
+        return {
+          name: formInput.name,
+          value: formInput.value
+        };
+      }
+    });
+
+    this.saveData(inputList);
+  }
+
+  saveData(payload) {
+    this.storage.save(payload);
+  }
+}
+
+/*
+Storage implementation
+ */
+class LocalStorage {
+  static save() {
+    return "saveStuff";
+  }
+
+  static get() {
+    return "getStuff";
+  }
+}
+
+const formSelector = document.forms[0];
+const storage = LocalStorage;
+
+new Form(formSelector, storage);
+```
+
+Notice how `saveData` in `Form` calls `this.storage.save` while passing the payload in. But what's that `static` keyword in front of `save` and `get` from `Storage`? If you remember from the previous section we used `Array.from` for creating an array from an HTML collection. We didn't call `const arr = new Array()` followed by `arr.from()`. `Array.from` in fact can be used without calling `new`, ie. without "instantiating" the class. It's a static method. Static methods are useful as utility functions that don't need an "instance" to work on. We're doing well. In the next section we'll finally play with localStorage, making our data persistent.
 
 ## Interacting with localStorage, and "this" comes to bite again
 
