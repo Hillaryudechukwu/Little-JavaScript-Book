@@ -456,12 +456,7 @@ Sooner or later you will need to persist some data for your users. There are man
 - `clear` for cleaning up the "database"
 - `removeItem` for removing data
 
-In a moment we'll see `setItem` and `getItem` in action for our simple "app", but first let's see where we left.
-
-W> ### Don't store sensitive data in localStorage
-localStorage should be used for what it is: a super simple "database" for persisting user preferences, simple data, and nothing more. You might be tempted to save everything into it, like passwords or authentication credentials. If so [please stop](https://www.rdegges.com/2018/please-stop-using-local-storage/).
-
-So here it is. We have an HTML form in **form.html** for inserting notes:
+In a moment we'll see `setItem` and `getItem` in action for our simple "app", but first let's see where we left. So here it is. We have an HTML form in **form.html** for inserting notes:
 
 ```html
 <!DOCTYPE html>
