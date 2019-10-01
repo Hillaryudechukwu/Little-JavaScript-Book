@@ -6,9 +6,6 @@
 
 ## Laying down the foundations
 
-I> ### Tools of the trade
-In this chapter you'll need `npm` (Node package manager) for installing and compiling TypeScript. Make sure to have one of the latest version of [Node.js](https://nodejs.org/en/) installed on your system. The `npm` binary is bundled there with Node.js. Also we'll mainly work on the terminal for running commands. If you worked with Linux or MacOS before that shouldn't be a problem.
-
 To be fair learning TypeScript is not something a beginner would or should do. At first sight TypeScript seems a complete different language compared to JavaScript and learning it is a trial and error process. While finishing this book I was also training a team on TypeScript and there were two JavaScript "beginners" in the group. They were programming since a year and an half and they happened to get hooked by TypeScript so much that they decided to learn it full time. And the story repeats almost every time: the more I talk to "fresh" JavaScript developers, the more they want to learn TypeScript too. TypeScript is growing fast and a big percentage of JavaScript jobs today require TypeScript knowledge. But to understand why TypeScript is important in the JavaScript ecosystem we'll take the usual way, as we did in the previous chapters: learn by doing. In the preceding chapter, "Chapter 10. HTML forms and playing with localStorage", we built a simple HTML form alongside with the logic for persisting data to localStorage. In this chapter instead we'll expand the HTML form, and more important we'll work with TypeScript.
 
 ## Getting started with TypeScript
