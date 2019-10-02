@@ -679,15 +679,4 @@ Notice how `saveData` in `Form` calls `this.storage.save` while passing the payl
 
 ## Interacting with localStorage, and "this" comes to bite again
 
-TODO
-
-## Conclusions
-
-TODO
-
-### Sharpen up your JavaScript skills
-
-**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
-
-- What's the default behaviour of HTML forms? It's possible to disable it?
-- Is there a way to capture HTML form values from a JavaScript function?
+The complete chapter (including exercises) is available in the [paid version](https://leanpub.com/little-javascript/).

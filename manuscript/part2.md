@@ -1,1 +1,1 @@
-# Part 2 - Working with JavaScript
+# Part 2 - Working with JavaScript in the browser

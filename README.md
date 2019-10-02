@@ -30,10 +30,9 @@ The third and last part contains solutions and hints for the exercises and futur
 
 The [paid](https://leanpub.com/little-javascript/) version has:
  
-- **more quizzes** at the end of every chapter
-- **solutions for the exercises**
+- more **quizzes and exercises** at the end of every chapter
 - a lot of **tips and best practices**
-- bonus chapter
+- future bonus chapters
 
 ## License & Copyright
 

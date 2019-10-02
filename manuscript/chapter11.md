@@ -189,4 +189,4 @@ That's why we got `Parameter 'event' implicitly has an 'any' type.` during compi
 
 ## Digging deeper into TypeScript types
 
-The complete chapter is available in the [paid version](https://leanpub.com/little-javascript/).
+The complete chapter (including exercises) is available in the [paid version](https://leanpub.com/little-javascript/).

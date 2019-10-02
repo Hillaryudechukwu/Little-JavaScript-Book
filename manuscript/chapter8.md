@@ -668,10 +668,4 @@ I know what you're thinking. The code we wrote so far can be improved. Hold tigh
 
 The Document Object Model is a virtual copy of the web page kept in memory by web browsers. DOM Manipulation is the act of creating, modifying and removing HTML elements from the DOM. In the past we used to rely on jQuery even for simpler tasks but today the native API is mature enough to make jQuery obsolete. On the other hand jQuery won't disappear anytime soon but every JavaScript developer must know how to manipulate the DOM with the native API. There are many reasons to do so. Additional libraries increase load time and size of JavaScript applications. Not to mention that DOM manipulation come up a lot in technical interviews. Every HTML element available in the DOM has an interface exposing a certain number of properties and methods. When in doubt about what method to use head over the excellent docs at [MDN](https://developer.mozilla.org/en-US/). Most common methods for manipulating the DOM are `document.createElement()` for creating a new HTML element, `document.createTextNode()` for creating text nodes inside the DOM. Last but not least there is `.appendChild()` for appending new HTML elements or a text node to an existing element. HTML elements have also the ability to emit events, also called DOM events. Most notable events are "click", "submit", "drag", "drop", and more. DOM events have some peculiar behaviour like the "default" and the bubbling. JavaScript developers can take advantage of these properties, which, especially for event bubbling, are useful for speeding up event handling in the DOM. While it is nice to have a good knowledge of the native API these days modern front-end libraries offer unquestionable benefits. It is indeed feasible to build a large JavaScript application with "vanilla" JavaScript yet Angular, React, and Vue can help a lot.
 
-### Sharpen up your JavaScript skills
-
-**More quizzes available in the [paid version](https://leanpub.com/little-javascript/)**.
-
-- What is the difference between `window` and DOM?
-- Name at least 3 useful methods for manipulating tables with JavaScript
-- Given a JavaScript object how can I extract every key from it?
+Exercises available in the [paid version](https://leanpub.com/little-javascript/).
