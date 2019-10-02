@@ -1,6 +1,8 @@
 # The Little JavaScript Book (Ebook)
 
-![The Little JavaScript Book Cover](https://www.valentinog.com/assets/img/the-little-JavaScript-book-cover-web.jpg)
+<p align="center">
+  <img width="600" height="777" src="https://www.valentinog.com/assets/img/the-little-JavaScript-book-cover-web.jpg">
+</p>
 
 Ever dreamed of a JavaScript book focused on the "hard parts" while being beginner friendly? If you answered yes then you will love "The Little JavaScript Book".
 
