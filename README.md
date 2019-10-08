@@ -1,4 +1,7 @@
 # The Little JavaScript Book (Ebook)
+> All you need to know about JavaScript (but never dared to ask).
+
+**Disclaimer: This repo holds the draft 1.0.0 version of the book, not in sync with the final release. It lacks chapter 11, and all the subsequent updates and fixes. I'm not accepting pull requests. Open an issue if you find errors or typos. Thanks a lot!**
 
 <p align="center">
   <img width="600" height="777" src="https://www.valentinog.com/assets/img/the-little-JavaScript-book-cover-web.jpg">
@@ -9,8 +12,6 @@ Ever dreamed of a JavaScript book focused on the "hard parts" while being beginn
 * [Read draft online (free)](manuscript/README.md)
 * [Buy on Leanpub](https://leanpub.com/little-javascript/)
 * [PDF/ePub/Mobi of the first draft](https://www.valentinog.com/little-javascript)
-
-**NOTE: I'm not accepting pull requests. Open an issue if you find errors or typos. Thanks a lot!**
 
 ## Motivation
 
@@ -30,8 +31,9 @@ The third and last part contains solutions and hints for the exercises and futur
 
 The [paid](https://leanpub.com/little-javascript/) version has:
  
-- more **quizzes and exercises** at the end of every chapter
+- **quizzes and exercises** at the end of every chapter
 - a lot of **tips and best practices**
+- future updates and fixes
 - future bonus chapters
 
 ## License & Copyright
