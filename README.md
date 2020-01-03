@@ -1,7 +1,7 @@
 # The Little JavaScript Book (Ebook)
 > All you need to know about JavaScript (but never dared to ask).
 
-**Disclaimer: This repo holds the draft 1.0.0 version of the book, not in sync with the final release. It lacks chapter 11, and all the subsequent updates and fixes. I'm not accepting pull requests. Open an issue if you find errors or typos. Thanks a lot!**
+**Disclaimer: This repo holds the draft version of the book, not in sync with the final release. I'm not accepting pull requests here. Open an issue if you find errors or typos. Thanks a lot!**
 
 <p align="center">
   <img width="600" height="777" src="https://www.valentinog.com/assets/img/the-little-JavaScript-book-cover-web.jpg">
@@ -11,7 +11,6 @@ Ever dreamed of a JavaScript book focused on the "hard parts" while being beginn
 
 * [Read draft online (free)](manuscript/README.md)
 * [Buy on Leanpub](https://leanpub.com/little-javascript/)
-* [PDF/ePub/Mobi of the first draft](https://www.valentinog.com/little-javascript)
 
 ## Motivation
 
@@ -35,9 +34,10 @@ The [paid](https://leanpub.com/little-javascript/) version has:
 - a lot of **tips and best practices**
 - future updates and fixes
 - future bonus chapters
+- a collection of JavaScript recipes
 
 ## License & Copyright
 
-The materials herein are all &copy; 2019 Valentino Gagliardi.
+The materials herein are all &copy; 2020 Valentino Gagliardi.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivs 4.0 Unported License</a>.
