@@ -1,4 +1,4 @@
-# Chapter 8. Manipulating HTML elements with JavaScript
+# Chapter 8. Shaping HTML elements with JavaScript
 
 ## The Document Object Model
 
