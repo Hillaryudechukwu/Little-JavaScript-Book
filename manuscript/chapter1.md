@@ -12,19 +12,21 @@ Studying JavaScript today does not mean a shallow understanding of variables and
 
 ## ECMAScript, and other technical terms
 
-You'll find a lot of technical terms in the book. Expert developers know them all, but I don't want beginners to feel bad because they're afraid to ask what "API" means. Here's a brief review of the most important web-related terms.
+If you're just starting out with web development chances are you'll be soon overwhelmed by technical jargon. You'll begin to ask yourself "what is AJAX?", "What is an API"? You'll find a lot of technical terms in the book. Expert developers know them all, but I don't want you to feel bad because you don't know what "API" means. Here's a little glossary of the most important terms.
 
-**API**: stands for Advanced Programming Interface, but don't bother the strict definition: an API is like an USB socket, really. You, the developer, can interact with the socket and exchange data with it. An API in programming is also a set of tools, a toolbox which is built by other developers and ready for use.
+**AJAX**: a set of technologies for fetching data in the browser without causing a page refresh. The acronym stands for "Asynchronous JavaScript and XML", coined in 1999.
 
-**Native API**: a native API is a built-in function available by default in a programming environment. Speaking of browsers for example we say that `document.querySelector()` is a native API for selecting HTML elements.
+**API**: stands for Application Programming Interface, but don't bother the strict definition for now: an API in programming is a set of tools, a toolbox of functions (also called methods), built by other developers and ready for use. With time you'll learn how the term has slightly different meanings depending on the context.
+
+**Native API**: a native API is a collection of built-in methods available by default in a programming environment. Speaking of browsers for example we say that `document.querySelector()` is part of the native API for selecting HTML elements.
 
 **Browser console**: in most web browsers you can access a developer toolbox. In Firefox and Chrome on Mac press Command + Option + I, on Linux (and Windows if I can recall) press F12. That will open a interactive console where you can type and execute JavaScript code. The console will also show errors and other messages from your JavaScript programs.
 
 **Debugger**: debuggers are tools built for helping developers to find why and where a program stops working. In JavaScript there is also the `debugger` instruction which stops the script exactly where it's placed.
 
-**Browser API or Web API**: like native APIs a Web API is a specific functionality available in a web browser. Developers can use these methods out of the box. Examples of Web API are `setTimeout`, `setInterval`, `console.log`. For a complete list check out [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
+**Browser API or Web API**: like native APIs a Web API is a specific functionality available in a web browser. Developers can methods from these APIs out of the box. Examples of Web API are the DOM, the Console API, Storage. For a complete list check out [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API).
 
-**ECMAScript**: it is the official name for JavaScript. In 1996 JavaScript was donated to ECMA international, a third-party entity which takes care of defining standards for a lot of technology related things.
+**ECMAScript**: it is a standard from which JavaScript has been implemented. It could also be used as the "official" name for JavaScript. In 1996 JavaScript was donated to ECMA international, a third-party entity which takes care of defining standards for a lot of technology related things.
 
 **ES5**: acronym for ECMAScript 2009, the fifth version of JavaScript. To avoid confusion it's more correct to say ECMAScript + year for denoting a specific JavaScript version.
 
@@ -34,23 +36,31 @@ You'll find a lot of technical terms in the book. Expert developers know them al
 
 **JavaScript specification**: is a formal, written document which outlines how the JavaScript language should behave. Browser vendors read the spec and implement JavaScript engines in a way that JavaScript code is executed as the spec prescribes.
 
-**Node.js**: an environment for running JavaScript outside of the browser. It includes a JavaScript engine, V8, for compiling and executing the code. Node.js is mostly used on the server-side.
+**Node.js**: an environment for running JavaScript outside of the browser. It includes a JavaScript engine, V8, for compiling and executing the code. Node.js is mostly used on the server-side and for command-line tools.
 
-**Node package manager**: npm in short, is a tool for managing the workflow of JavaScript projects, from installing thirdy-part packages to shipping code to users.
+**Node package manager**: npm in short, is a tool for managing the workflow of JavaScript projects, from installing third-part packages to shipping code.
 
-**HTTP request**: is the act of "talking" to a remote web server for fetching or saving data. Most of the times the data is exchanged in JSON format.
+**HTTP request**: is the act of "talking" to a remote web server (also called web service) for fetching or saving data. An example of HTTP request is when you visit some web page with a browser. Web pages in turn can make HTTP requests too for fetching data, mostly to REST APIs (see below). While a web service is not the same thing as a web server, there is always some kind of server listening for connections behind a web service.
 
 **HTTP error**: sometimes things don't go well when talking to web services and the server may respond with an error. Errors are denoted with a numeric code: some common errors are 500 (server error), 404 (not found), 403 (forbidden), and so on.
 
-**JSON**: JSON stands for JavaScript Object Notation, a format for exchanging data between web services and JavaScript applications.
+**JSON**: JSON stands for JavaScript Object Notation, a format for exchanging data between web service and web applications, yet not only limited to them.
 
-**REST API**: is a web service (local or remote) which exposes data. A REST API makes possible to interact with an underlying database for saving or retrieving entities.
+**REST API**: is a web service (local or remote) which can expose data. Web applications (and any kind of application in general) can make HTTP request to a REST API for interacting with an underlying database, or simply for sending commands to the system.
 
-**Transpiler**: older browsers do not support modern JavaScript syntax from ECMAScript 2015 and above. A transpiler is a tool which takes modern JavaScript syntax and spits out a more compatible version (ECMAScript 2009).
+**Transpiler**: older browsers do not support modern JavaScript syntax from ECMAScript 2015 and beyond. A transpiler is a tool which takes modern JavaScript syntax and spits out a more compatible version (ECMAScript 2009).
+
+**Proposal**: JavaScript innovation is fueled by a group of developers and academics forming a committee, called TC39. Members of the committee can submit proposals for improving and adding new features to the language. A proposal is a formal description outlining what the new feature does and how it'll be used in JavaScript.
+
+**Stage N**: new JavaScript proposals always start at stage 0. The more the proposal is voted by the committee, the more it advances to the next stages: 1, 2, 3, and 4. Every time you read "stage 1" or "stage 2", it's the stage at which the proposal is currently in. A proposal at stage 2 for example means it is doing fairly well and it will most likely move forward to the next stages. The final stage is 4, meaning that the new feature will land into the language.
 
 **Vanilla JavaScript**: vanilla JavaScript is a term for denoting "pure" JavaScript applications, i.e. those written without the help of a frontend library like React, Vue, or Angular.
 
-**AJAX**: a set of technologies for fetching data in the browser without causing a page refresh. The acronym stands for "Asynchronous JavaScript and XML", coined in 1999.
+**XMLHttpRequest**: it is a native object available in browsers for making HTTP requests to remote resources. XMLHttpRequest is part of the AJAX family, a set of technologies for fetching data in the browser without causing a page refresh.
+
+**Fetch API**: it is a native API for making HTTP requests, much like XMLHttpRequest, but based on ECMAScript 2015 Promises. It is considered the successor of XMLHttpRequest, yet builds on top of it as you'll see later in the book.
+
+**CORS**: acronym for Cross-Origin Resource Sharing. It is a way for browsers to give access to a given domain, for instance _b-example.dev_ to resources living on a different domain, ie. _a-example.dev_. By default browsers block HTTP requests to remote resources originating  from objects like XMLHttpRequest.
 
 ## A special note on modern JavaScript
 
