@@ -447,6 +447,14 @@ Refresh **form.html** again, fill the form and you should see:
 
 Great job. There is an empty value `undefined` though. It comes from the button element. The default behaviour of `map` is to return `undefined` in case of "empty" values. Since we checked `if (formInput.type !== "submit")` the button element is not returned from `map` and gets replaced by `undefined`. We can remove it later, now let's turn our attention to localStorage.
 
+## Going idiomatic with FormData
+
+Paid version
+
+## The formdata event
+
+Paid version
+
 ## Getting to know localStorage and laying out our classes
 
 Sooner or later you will need to persist some data for your users. There are many reasons to do so. Think of a note app for example. A user may insert new things to do into an HTML form and later come back to see those notes. Next time she opens the page she'll find everything there. What options do we have for saving data in the browser? A serious approach for persisting data would involve a database, but here we have just some HTML, JavaScript, and a browser. Yet not everything is lost. There is a built-in tool available in modern browsers, acting like a very simple database, perfectly suited for our needs: [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage). localStorage behaves like a JavaScript object, it has a bunch of methods like:
